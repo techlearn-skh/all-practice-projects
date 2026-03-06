@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: sb-demo-no-db
+server:
+  port: 9000
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+    health:
+      show-details: always
+  server:
+    port: 9000

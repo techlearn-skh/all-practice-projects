@@ -1,0 +1,64 @@
+Name:               ocp-demo-7dbc68dfd-6f5h5
+Namespace:          helm-dev
+Priority:           0
+PriorityClassName:  <none>
+Node:               crc/192.168.126.11
+Start Time:         Sun, 01 Mar 2026 21:57:07 +0530
+Labels:             app.kubernetes.io/instance=ocp-demo
+                    app.kubernetes.io/managed-by=Helm
+                    app.kubernetes.io/name=ocp-demo
+                    app.kubernetes.io/version=1.0
+                    helm.sh/chart=ocp-demo-1.0
+                    pod-template-hash=7dbc68dfd
+Annotations:        k8s.ovn.org/pod-networks={"default":{"ip_addresses":["10.217.1.208/23"],"mac_address":"0a:58:0a:d9:01:d0","gateway_ips":["10.217.0.1"],"routes":[{"dest":"10.217.0.0/22","nextHop":"10.217.0.1"},{"dest"...
+                    k8s.v1.cni.cncf.io/network-status=[{
+    "name": "ovn-kubernetes",
+    "interface": "eth0",
+    "ips": [
+        "10.217.1.208"
+    ],
+    "mac": "0a:58:0a:d9:01:d0",
+    "default": true,
+    "dns": {...
+                openshift.io/scc=restricted-v2
+                seccomp.security.alpha.kubernetes.io/pod=runtime/default
+                security.openshift.io/validated-scc-subject-type=user
+Status:         Failed
+Reason:         Evicted
+Message:        The node was low on resource: ephemeral-storage. Threshold quantity: 4902142351, available: 4152728Ki. 
+IP:             10.217.1.208
+Controlled By:  ReplicaSet/ocp-demo-7dbc68dfd
+Containers:
+  ocp-demo:
+    Container ID:   cri-o://d743273ef99c4818ab731f9bb7780d654339626ca441b20def3206639b979786
+    Image:          docker.io/kamaltechlearn/ocp-demo:1.0
+    Image ID:       docker.io/kamaltechlearn/ocp-demo@sha256:65604ae89b7d6c36f430f86640cd821cfa4e2c37d12ec2041019fab0a24e482a
+    Port:           9000/TCP
+    Host Port:      0/TCP
+    State:          Terminated
+      Reason:       Error
+      Exit Code:    143
+      Started:      Sun, 01 Mar 2026 21:57:36 +0530
+      Finished:     Sun, 01 Mar 2026 21:57:40 +0530
+    Ready:          False
+    Restart Count:  0
+    Liveness:       http-get http://:http/ delay=0s timeout=1s period=10s #success=1 #failure=3
+    Readiness:      http-get http://:http/ delay=0s timeout=1s period=10s #success=1 #failure=3
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-jd9ng (ro)
+Conditions:
+  Type                        Status
+  DisruptionTarget            True 
+  PodReadyToStartContainers   False 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-jd9ng:
+  <unknown>
+QoS Class:       BestEffort
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
+                 node.kubernetes.io/unreachable:NoExecute for 300s

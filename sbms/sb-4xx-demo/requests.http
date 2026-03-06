@@ -1,0 +1,19 @@
+### Get all users
+GET http://localhost:8080/hello-world
+Accept: application/json
+
+### Get dummy worker
+GET http://localhost:8080/emp
+Accept: application/json
+
+### Create a new user
+POST http://localhost:8080/store-employee
+Content-Type: application/json
+
+{
+  "empId": 1,
+  "empName": "BBB",
+  "empDOJ": "2026-01-29T07:25:28.216Z",
+  "empSalary": 1212,
+  "isPermenentEmp": true
+}
