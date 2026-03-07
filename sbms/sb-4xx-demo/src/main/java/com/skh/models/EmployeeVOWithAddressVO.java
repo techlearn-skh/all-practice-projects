@@ -1,10 +1,17 @@
 package com.skh.models;
 
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@Data
+@ToString
+@NoArgsConstructor
 public class EmployeeVOWithAddressVO {
 
 
@@ -18,10 +25,6 @@ public class EmployeeVOWithAddressVO {
 
     public static String companyType = "IN";
 
-    public EmployeeVOWithAddressVO() {
-
-    }
-
     public EmployeeVOWithAddressVO(Integer empId, String empName, Date empDOJ, Double empSalary, Boolean isPermenentEmp, List<AddressVO> eAddressList) {
         super();
         this.empId = empId;
@@ -30,70 +33,6 @@ public class EmployeeVOWithAddressVO {
         this.empSalary = empSalary;
         this.isPermenentEmp = isPermenentEmp;
         this.eAddressList = eAddressList;
-    }
-
-    public Integer getEmpId() {
-        return empId;
-    }
-
-    public void setEmpId(Integer empId) {
-        this.empId = empId;
-    }
-
-    public String getEmpName() {
-        return empName;
-    }
-
-    public void setEmpName(String empName) {
-        this.empName = empName;
-    }
-
-    public Date getEmpDOJ() {
-        return empDOJ;
-    }
-
-    public void setEmpDOJ(Date empDOJ) {
-        this.empDOJ = empDOJ;
-    }
-
-    public Double getEmpSalary() {
-        return empSalary;
-    }
-
-    public void setEmpSalary(Double empSalary) {
-        this.empSalary = empSalary;
-    }
-
-    public Boolean getIsPermenentEmp() {
-        return isPermenentEmp;
-    }
-
-    public void setIsPermenentEmp(Boolean isPermenentEmp) {
-        this.isPermenentEmp = isPermenentEmp;
-    }
-
-    public Boolean getPermenentEmp() {
-        return isPermenentEmp;
-    }
-
-    public void setPermenentEmp(Boolean permenentEmp) {
-        isPermenentEmp = permenentEmp;
-    }
-
-    public List<AddressVO> geteAddressList() {
-        return eAddressList;
-    }
-
-    public void seteAddressList(List<AddressVO> eAddressList) {
-        this.eAddressList = eAddressList;
-    }
-
-    public static String getCompanyType() {
-        return companyType;
-    }
-
-    public static void setCompanyType(String companyType) {
-        EmployeeVOWithAddressVO.companyType = companyType;
     }
 
     @Override
@@ -108,28 +47,19 @@ public class EmployeeVOWithAddressVO {
         return Objects.hash(empId, empName, empDOJ, empSalary, isPermenentEmp, eAddressList);
     }
 
-    @Override
-    public String toString() {
-        return "EmployeeVOWithAddressVO{" +
-                "empId=" + empId +
-                ", empName='" + empName + '\'' +
-                ", empDOJ=" + empDOJ +
-                ", empSalary=" + empSalary +
-                ", isPermenentEmp=" + isPermenentEmp +
-                ", eAddressList=" + eAddressList +
-                '}';
-    }
 
     public static List<EmployeeVOWithAddressVO> fetchAllEmployees() {
-
+        AddressVO addressVO1 = new AddressVO(UUID.randomUUID().toString().substring(0, 8), UUID.randomUUID().toString().substring(0, 8),
+                UUID.randomUUID().toString().substring(0, 8), UUID.randomUUID().toString().substring(0, 6), UUID.randomUUID().toString().substring(0, 8));
+        AddressVO addressVO2 = new AddressVO(UUID.randomUUID().toString().substring(0, 8), UUID.randomUUID().toString().substring(0, 8),
+                UUID.randomUUID().toString().substring(0, 8), UUID.randomUUID().toString().substring(0, 6), UUID.randomUUID().toString().substring(0, 8));
 
         Random random = new Random();
         return IntStream.range(0, 5)
                 .mapToObj(x -> new EmployeeVOWithAddressVO((Math.abs(random.nextInt() % 100)), UUID.randomUUID().toString().substring(0, 8),
                         (random.nextInt() % 2 == 0 ? new Date() : new Date(new Date().getTime() + 86400000)),
                         Math.ceil(random.nextDouble() * 100000), ((Math.abs(random.nextInt() % 100)) % 2 == 0),
-                        List.of(new AddressVO(UUID.randomUUID().toString().substring(0, 8),UUID.randomUUID().toString().substring(0, 8),
-                                UUID.randomUUID().toString().substring(0, 8), UUID.randomUUID().toString().substring(0, 6),UUID.randomUUID().toString().substring(0, 8)))))
+                        List.of(addressVO1, addressVO2)))
                 .collect(Collectors.toList());
     }
 

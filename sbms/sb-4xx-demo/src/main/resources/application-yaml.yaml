@@ -1,0 +1,76 @@
+app:
+  name: EmployeeService
+  version: 1.0
+list:
+  name: employee-service
+  servers:
+    - server1
+    - server2
+
+emp-list:
+  employees:
+    - id: 1
+      name: John
+      department: IT
+
+    - id: 2
+      name: Alice
+      department: HR
+
+emp-map:
+  employees:
+    emp1:
+      id: 1
+      name: John
+      department: IT
+
+    emp2:
+      id: 2
+      name: Alice
+      department: HR
+
+params:
+  employeeParamNames:
+    - paramName: empId
+      paramType: int
+      sourcePath: /empId
+    - paramName: empName
+      paramType: string
+      sourcePath: /empName
+    - paramName: empDOJ
+      paramType: date
+      sourcePath: /empDOJ
+    - paramName: empSalary
+      paramType: double
+      sourcePath: /empSalary
+    - paramName: isPermenentEmp
+      paramType: boolean
+      sourcePath: /isPermenentEmp
+    - paramName: eCity
+      paramType: string
+      sourcePath: /eAddressList/\d*/eCity
+    - paramName: eState
+      paramType: string
+      sourcePath: /eAddressList/\d*/eState
+    - paramName: eDisctrict
+      paramType: string
+      sourcePath: /eAddressList/\d*/eDisctrict
+    - paramName: ePin
+      paramType: string
+      sourcePath: /eAddressList/\d*/ePin
+    - paramName: eStreetNo
+      paramType: string
+      sourcePath: /eAddressList/\d*/eStreetNo
+
+
+
+
+
+
+
+
+
+
+
+
+

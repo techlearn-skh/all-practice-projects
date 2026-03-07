@@ -1,41 +1,20 @@
 package com.skh;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.*;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.HashMap;
 
 public class App {
     public static void main(String[] args) {
-
-//Creating an empty HashMap with default initial capacity and default load factor
-
-        HashMap<String, Integer> studentNameMarksMap = new HashMap<String, Integer>();
-
-        //Inserting entries into studentNameMarksMap
-
-        studentNameMarksMap.put("Aditya Sen", 57);
-        studentNameMarksMap.put("Harris Brar", 34);
-        studentNameMarksMap.put("Sarah Amin", 61);
-        studentNameMarksMap.put("Rishika Gowda", 75);
-        studentNameMarksMap.put("Rohit Gupta", 68);
-        studentNameMarksMap.put("Andriel Hope", 31);
-        studentNameMarksMap.put("Deepti Sharma", 81);
-        studentNameMarksMap.put("Irfan Ali", 33);
-        studentNameMarksMap.put("Ruth Prabhu", 66);
-        studentNameMarksMap.put("Arun Trivedi", 29);
-
-        studentNameMarksMap.clear();
-        System.out.println(studentNameMarksMap);
-
-
-        System.out.println(LocalDate.of(1978,12,13));
-
-
+        int[] inputArray = {4, 7, 2, 9, 1, 7, 1, 4, 7, 8};
+        HashMap<Integer, Integer> elementFrequencyMap = new HashMap<Integer, Integer>();
+        for (int i : inputArray) {
+            elementFrequencyMap.put(i, elementFrequencyMap.getOrDefault(i, 0) + 1);
+            if(elementFrequencyMap.containsKey(i)){
+                elementFrequencyMap.put(i, elementFrequencyMap.get(i) + 1);
+            }else {
+                elementFrequencyMap.put(i,1);
+            }
+        }
+        System.out.println(elementFrequencyMap);
     }
 }
 
