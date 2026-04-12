@@ -7,12 +7,12 @@ server:
 
 logging:
   file:
-    name: log/myapp.log
+    name: myapp-dir/log/myapp.log
 
 management:
-  server:
-    port=9001
-  endpoint:
+  endpoints:
+    prometheus:
+      enabled: true
     health:
       show-details: always
     web:
