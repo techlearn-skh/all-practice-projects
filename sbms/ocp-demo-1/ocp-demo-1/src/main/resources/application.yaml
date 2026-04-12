@@ -3,3 +3,25 @@ spring:
     name: ocp-demo-1
 server:
   port: 9001
+
+
+logging:
+  file:
+    name: log/myapp.log
+
+management:
+  server:
+    port=9001
+  endpoint:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: "*"
+      group:
+        liveness:
+          include: livenessState
+        readiness:
+          include: readinessState,db
+
+

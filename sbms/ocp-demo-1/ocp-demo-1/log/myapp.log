@@ -1,0 +1,10 @@
+2026-04-12T14:04:02.097+05:30  INFO 15520 --- [ocp-demo-1] [restartedMain] com.skh.OcpDemo1Application              : Starting OcpDemo1Application using Java 21.0.8 with PID 15520 (D:\Practice\all-practice-projects\sbms\ocp-demo-1\ocp-demo-1\build\classes\java\main started by Dell in D:\Practice\all-practice-projects\sbms\ocp-demo-1\ocp-demo-1)
+2026-04-12T14:04:02.104+05:30  INFO 15520 --- [ocp-demo-1] [restartedMain] com.skh.OcpDemo1Application              : No active profile set, falling back to 1 default profile: "default"
+2026-04-12T14:04:02.164+05:30  INFO 15520 --- [ocp-demo-1] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-12T14:04:03.677+05:30  INFO 15520 --- [ocp-demo-1] [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-04-12T14:04:04.219+05:30  INFO 15520 --- [ocp-demo-1] [restartedMain] o.s.boot.reactor.netty.NettyWebServer    : Netty started on port 9001 (http)
+2026-04-12T14:04:04.226+05:30  INFO 15520 --- [ocp-demo-1] [restartedMain] com.skh.OcpDemo1Application              : Started OcpDemo1Application in 2.69 seconds (process running for 3.428)
+2026-04-12T14:04:09.261+05:30  INFO 15520 --- [ocp-demo-1] [reactor-http-nio-2] com.skh.OCPDemoController                : Hi welcome to OCPDemoController, port: 9001
+2026-04-12T14:04:09.354+05:30  INFO 15520 --- [ocp-demo-1] [reactor-http-nio-2] com.skh.OCPDemoController                : Hi welcome to OCPDemoController, port: 9001
+2026-04-12T14:06:23.818+05:30  INFO 15520 --- [ocp-demo-1] [SpringApplicationShutdownHook] o.s.boot.reactor.netty.GracefulShutdown  : Commencing graceful shutdown. Waiting for active requests to complete
+2026-04-12T14:06:23.819+05:30  INFO 15520 --- [ocp-demo-1] [netty-shutdown] o.s.boot.reactor.netty.GracefulShutdown  : Graceful shutdown complete
