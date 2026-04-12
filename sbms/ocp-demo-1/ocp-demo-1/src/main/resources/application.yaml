@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: ocp-demo-1
+server:
+  port: 9001

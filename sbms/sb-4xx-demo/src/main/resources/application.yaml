@@ -3,4 +3,11 @@ spring:
     active: yaml
 
 server:
-  port: 8080
+  port: 9000
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

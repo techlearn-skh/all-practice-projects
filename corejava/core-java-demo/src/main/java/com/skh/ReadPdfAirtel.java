@@ -15,7 +15,8 @@ import static org.apache.pdfbox.pdmodel.PDDocument.*;
 
 public class ReadPdfAirtel {
     public static void main(String[] args) throws IOException {
-        String filePath1 = "C:\\Users\\Dell\\Downloads\\airtel\\9505208500_20260214001280.pdf";
+//        String filePath1 = "C:\\Users\\Dell\\Downloads\\airtel\\9505208500_20260214001280.pdf";
+        String filePath1 = "";
         String filePath2 = "9505208500_20260214001280.pdf";
         read2(filePath1);
 

@@ -1,27 +1,22 @@
 package com.skh;
 
-import java.util.HashMap;
+
+import java.util.Date;
 
 public class App {
     public static void main(String[] args) {
-        int[] inputArray = {4, 7, 2, 9, 1, 7, 1, 4, 7, 8};
-        HashMap<Integer, Integer> elementFrequencyMap = new HashMap<Integer, Integer>();
-        for (int i : inputArray) {
-            elementFrequencyMap.put(i, elementFrequencyMap.getOrDefault(i, 0) + 1);
-            if(elementFrequencyMap.containsKey(i)){
-                elementFrequencyMap.put(i, elementFrequencyMap.get(i) + 1);
-            }else {
-                elementFrequencyMap.put(i,1);
-            }
-        }
-        System.out.println(elementFrequencyMap);
+        EmployeeVO e1 = new EmployeeVO(12, "AZAD", new Date(), 1234d, true);
+        EmployeeVO e2 = new EmployeeVO(121, "AZAD", new Date(), 1234d, true);
+
+//        e1.setEmpName("Kamal");
+
+//        System.out.println(e1.equals(e2));
+//        System.out.println(e1.getEmpName());
+//        System.out.println(e2.getEmpName());
+
+        String name1 = "azad";
+        String name2 = "azad";
+
+        System.out.println(name1.equals(name2));
     }
 }
-
-
-
-
-
-
-
-

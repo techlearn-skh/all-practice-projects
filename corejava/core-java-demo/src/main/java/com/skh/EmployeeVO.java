@@ -75,17 +75,10 @@ public class EmployeeVO implements Comparable<EmployeeVO>{
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        EmployeeVO other = (EmployeeVO) obj;
-        return Objects.equals(empDOJ, other.empDOJ) && Objects.equals(empId, other.empId)
-                && Objects.equals(empName, other.empName) && Objects.equals(empSalary, other.empSalary)
-                && Objects.equals(isPermenentEmp, other.isPermenentEmp);
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeVO that = (EmployeeVO) o;
+        return Objects.equals(empId, that.empId) && Objects.equals(empName, that.empName) && Objects.equals(empDOJ, that.empDOJ) && Objects.equals(empSalary, that.empSalary) && Objects.equals(isPermenentEmp, that.isPermenentEmp);
     }
 
     @Override
