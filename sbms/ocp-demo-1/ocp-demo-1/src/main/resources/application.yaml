@@ -4,11 +4,6 @@ spring:
 server:
   port: 9001
 
-
-logging:
-  file:
-    name: myapp-dir/log/myapp.log
-
 management:
   endpoints:
     prometheus:

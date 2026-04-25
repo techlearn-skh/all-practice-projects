@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: kamalredhat-2025-dev
+  name: 'ocp-demo'
+  annotations: {}
+spec:
+  selector:
+    matchLabels:
+      app: ocp-demo
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: ocp-demo
+    spec:
+      containers:
+        - name: ocp-demo
+          image: >-
+            docker.io/kamaltechlearn/openshift-demo:1.0
+          ports:
+            - containerPort: 9001
+              protocol: TCP
+          env: []
+      imagePullSecrets: []
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  paused: false

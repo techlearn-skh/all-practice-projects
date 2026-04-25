@@ -1,19 +1,26 @@
 package com.skh;
 
-public class Test {
-    public static void main(String[] args) {
-        try {
-            //creating an exception
-            NumberFormatException ex = new NumberFormatException("Exception");
-            //setting a cause of the exception
-            ex.initCause(new NullPointerException("user sents either string or alpha numeric value"));
-            throw ex;
-        } catch (NumberFormatException ex) {
-            // System.out.println(ex);     //displaying the exception
-            System.out.println(ex.getCause());    //getting the actual cause of the exception
-        }
-    }
+class Employee1 {
+    int salary;
 }
 
+public class Test {
+    public static void main(String[] args) {
+        Employee1 emp = new Employee1();
+        emp.salary = 1000;
+
+        change(emp);
+
+        System.out.println(emp.salary); // 5000
+    }
+
+    static void change(Employee1 e) {
+//        e.salary = 5000;
+
+
+        e = new Employee1(); // NEW OBJECT
+        e.salary = 5000;
+    }
+}
 
 
