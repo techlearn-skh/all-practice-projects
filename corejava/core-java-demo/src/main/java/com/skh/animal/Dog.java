@@ -23,6 +23,6 @@ public class Dog implements IAnimal {
     public List<String> eatingItems() {
         return List.of("non-veg", "milk", "biscuits");
 
-        //AZAD sk
+        //AZAD.SK
     }
 }
