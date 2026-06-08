@@ -1,22 +1,42 @@
 package com.skh;
 
 
-import java.util.Date;
+import com.skh.interfaces.AnimalInterface;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class App {
     public static void main(String[] args) {
-        EmployeeVO e1 = new EmployeeVO(12, "AZAD", new Date(), 1234d, true);
-        EmployeeVO e2 = new EmployeeVO(121, "AZAD", new Date(), 1234d, true);
+        String P_CONST = "PARAM:";
+        Map<String, String> map = new HashMap<>();
 
-//        e1.setEmpName("Kamal");
+        map.put("", "empty");
+        map.put("", "empty");
+        map.put("PARAM:A", "true");
+        map.put("", "empty");
+       // System.out.println(map);
 
-//        System.out.println(e1.equals(e2));
-//        System.out.println(e1.getEmpName());
-//        System.out.println(e2.getEmpName());
+        boolean b = map.entrySet().stream().anyMatch(e ->
+                e.getKey() != null &&
+                        !e.getKey().trim().isEmpty());
 
-        String name1 = "azad";
-        String name2 = "azad";
+        System.out.println(b);
 
-        System.out.println(name1.equals(name2));
+       /* Map<String, String> collect = map.entrySet().stream()
+                .filter(m -> m.getKey().startsWith(P_CONST) && m.getKey().substring(P_CONST.length()).length() >= 1)
+                .collect(Collectors.toMap(mm -> mm.getKey().substring(P_CONST.length()), Map.Entry::getValue));
+
+        map.entrySet().removeIf(entry -> entry.getKey() != null && entry.getKey().trim().isEmpty());*/
+
+      /*  Stream.of(map).map(m -> new Test().removeEmptyKeyMapObjects(m))
+                        .forEach(System.out::println);*/
+
+
+
     }
 }
+
