@@ -1,9 +1,9 @@
 package com.skh.interfaces;
 
 
+@FunctionalInterface
 public interface AnimalInterface {
-
-   String soubnds();
+    void m1(int age, String village);
 
 }
 
