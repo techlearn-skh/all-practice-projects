@@ -12,6 +12,7 @@ public class App {
 		EmployeeService employeeService = (EmployeeService)eService;
 
 		System.out.println(employeeService.employeeDetails());
+        System.out.println("Welcome to Spring Project...!");
 
 	}
 }
