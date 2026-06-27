@@ -5,7 +5,7 @@ metadata:
   namespace: kamalredhat-2025-dev
 spec:
   selector:
-    app: ocp-swagger-demo
+    app: ocp-swagger-demo-deployment
   ports:
     - protocol: TCP
       port: 9001

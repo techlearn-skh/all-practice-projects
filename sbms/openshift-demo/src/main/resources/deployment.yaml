@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: kamalredhat-2025-dev
-  name: 'ocp-swagger-demo'
+  name: 'ocp-swagger-demo-deployment'
 spec:
   selector:
     matchLabels:
-      app: ocp-swagger-demo
+      app: ocp-swagger-demo-deployment
   replicas: 3
   template:
     metadata:
       labels:
-        app: ocp-swagger-demo
+        app: ocp-swagger-demo-deployment
     spec:
       containers:
-        - name: ocp-swagger-demo
+        - name: ocp-swagger-demo-deployment
           image: >-
-            docker.io/kamaltechlearn/ocp-swagger-demo:2.0
+            docker.io/kamaltechlearn/ocp-swagger-demo:3.0
           ports:
             - containerPort: 9001
               protocol: TCP
