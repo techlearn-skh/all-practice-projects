@@ -2,30 +2,26 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: kamalredhat-2025-dev
-  name: 'ocp-demo'
-  annotations: {}
+  name: 'ocp-swagger-demo'
 spec:
   selector:
     matchLabels:
-      app: ocp-demo
+      app: ocp-swagger-demo
   replicas: 3
   template:
     metadata:
       labels:
-        app: ocp-demo
+        app: ocp-swagger-demo
     spec:
       containers:
-        - name: ocp-demo
+        - name: ocp-swagger-demo
           image: >-
-            docker.io/kamaltechlearn/openshift-demo:1.0
+            docker.io/kamaltechlearn/ocp-swagger-demo:2.0
           ports:
             - containerPort: 9001
               protocol: TCP
-          env: []
-      imagePullSecrets: []
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 25%
       maxUnavailable: 25%
-  paused: false

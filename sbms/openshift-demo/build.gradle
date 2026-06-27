@@ -23,6 +23,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-actuator-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webflux-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+
+//	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.2' --> this is for spring web mvc, but we are using spring webflux, so we need to use the following dependency instead
+	implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:3.0.2' // this is for spring webflux
 }
 
 tasks.named('test') {
