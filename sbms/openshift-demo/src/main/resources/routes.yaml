@@ -1,9 +1,9 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: ocp-demo-route
+  name: ocp-swagger-demo-route
   namespace: kamalredhat-2025-dev
 spec:
   to:
     kind: Service
-    name: 'ocp-demo-service'
+    name: 'ocp-swagger-demo-service'

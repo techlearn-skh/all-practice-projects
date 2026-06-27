@@ -21,7 +21,6 @@ public class OCPDemoController {
     private Environment environment;
 
     @GetMapping("/")
-    @Tag(name = "Default page to display", description = "APIs for creating, fetching, and updating products")
     public String welcomeMessage() throws Exception {
         logger.info("Hi welcome to OCPDemoController, port: " + environment.getProperty("server.port"));
         logger.debug("Hi welcome to OCPDemoController, port: " + environment.getProperty("server.port"));

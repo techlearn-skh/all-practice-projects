@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: ocp-demo-service
+  name: ocp-swagger-demo-service
   namespace: kamalredhat-2025-dev
 spec:
   selector:
-    app: ocp-demo
+    app: ocp-swagger-demo
   ports:
     - protocol: TCP
       port: 9001

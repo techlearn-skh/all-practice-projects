@@ -18,11 +18,11 @@ public class SwaggerApiConfig {
                 .info(
                         new Info()
                                 .title("Employee Service API")
-                                .description("Spring Boot 4 Swagger Example")
+                                .description("OpenShift Spring boot with Swagger Example")
                                 .version("1.0.0")
                                 .contact(new Contact()
                                                 .name("Tech Learn")
-                                                .email("techlearn@test.com")
+                                                .email("techlearn508@gmail.com")
                                                 .url("https://example.com")
                                 )
                                 .license(new License()
