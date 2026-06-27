@@ -41,7 +41,7 @@ public class OCPDemoController {
             podIp = localhost.getHostAddress();
         }
         String port = environment.getProperty("server.port");
-        return "[Host/Pod Name : %s, IP Address: %s, Port: %s]".formatted(podName, podIp, port);
+        return "[Host/Pod Name : %s, IP Address: %s, Port: %s, Timestamp: %s]".formatted(podName, podIp, port, java.time.LocalDateTime.now());
     }
 
     @GetMapping("/fullName")
