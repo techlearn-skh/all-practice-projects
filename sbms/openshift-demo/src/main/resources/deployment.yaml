@@ -16,7 +16,7 @@ spec:
       containers:
         - name: ocp-swagger-demo-deployment
           image: >-
-            docker.io/kamaltechlearn/ocp-swagger-demo:3.0
+            docker.io/kamaltechlearn/ocp-swagger-env-demo:1.0
           ports:
             - containerPort: 9001
               protocol: TCP

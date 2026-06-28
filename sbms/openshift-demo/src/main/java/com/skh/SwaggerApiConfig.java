@@ -33,10 +33,6 @@ public class SwaggerApiConfig {
                                         .url("https://www.apache.org/licenses/LICENSE-2.0")
                                 )
                 )
-                .servers(Arrays.asList(
-                        new Server().url("http://localhost:9001").description("Local development server"),
-                        new Server().url("http://{podIp}:{port}").description("Kubernetes pod (runtime)")
-                ))
                 .externalDocs(new ExternalDocumentation()
                         .description("Project repository and docs")
                         .url("https://github.com/techlearn-skh/all-practice-projects")
