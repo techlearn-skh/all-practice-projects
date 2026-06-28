@@ -1,6 +1,10 @@
 package com.skh;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +24,10 @@ public class OCPDemoController {
     @Autowired
     private Environment environment;
 
+    @Operation(summary = "Welcome message", description = "Returns a welcome message with host/pod info")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful response")
+    })
     @GetMapping("/")
     public String welcomeMessage() throws Exception {
         logger.info("Hi welcome to OCPDemoController, port: " + environment.getProperty("server.port"));
@@ -44,9 +52,15 @@ public class OCPDemoController {
         return "[Host/Pod Name : %s, IP Address: %s, Port: %s, Timestamp: %s]".formatted(podName, podIp, port, java.time.LocalDateTime.now());
     }
 
+    @Operation(summary = "Fetch full name", description = "Returns full name with pod info")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Successful response"),
+            @ApiResponse(responseCode = "400", description = "Missing or invalid parameters")
+    })
     @GetMapping("/fullName")
-    public String fetchFullName(@RequestParam String firstName,
-                                @RequestParam String lastName) throws Exception {
+    public String fetchFullName(
+            @Parameter(description = "First name", required = true) @RequestParam String firstName,
+            @Parameter(description = "Last name", required = true)  @RequestParam String lastName) throws Exception {
         logger.info(String.format("Hi your full name is %s %s, port: %s", firstName, lastName, environment.getProperty("server.port")));
         logger.debug(String.format("Hi your full name is %s %s, port: %s", firstName, lastName, environment.getProperty("server.port")));
         logger.info(printHostIpPort());
