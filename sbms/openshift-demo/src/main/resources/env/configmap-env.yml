@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: ocp-swagger-demo-config
+  namespace: kamalredhat-2025-dev
+
+data:
+  SPRING_PROFILES_ACTIVE: ocp
+  APP_NAME: "openshift-demo"
+  SERVER_PORT: "9001"
+  SWAGGER_API_DOCS_ENABLED: "true"
+  SWAGGER_UI_ENABLED: "true"
+  SWAGGER_UI_PATH: "/swagger-ui.html"
+  SWAGGER_DISPLAY_DURATION: "true"
+  SWAGGER_TRY_OUT: "true"
+  SWAGGER_OPERATION_SORTER: "method"
+  SWAGGER_TAG_SORTER: "alpha"

@@ -1,9 +1,12 @@
 spring:
   application:
     name: openshift-demo
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
 
 server:
-  port: 9001
+  port: ${SERVER_PORT:9000}
+
 
 
 springdoc:
@@ -11,9 +14,12 @@ springdoc:
     enabled: true
 
   swagger-ui:
-    enabled: true
+    enabled: ${SWAGGER_UI_ENABLED:false}
     path: /swagger-ui.html
     display-request-duration: true
     try-it-out-enabled: true
     operations-sorter: method
     tags-sorter: alpha
+my-credentials:
+  username: ${MY_USERNAME:admin}
+  password: ${MY_PASSWORD:admin}

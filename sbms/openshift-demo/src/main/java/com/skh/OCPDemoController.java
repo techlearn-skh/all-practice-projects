@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,6 +25,11 @@ public class OCPDemoController {
     @Autowired
     private Environment environment;
 
+    @Value("${my-credentials.username}")
+    String userName;
+    @Value("${my-credentials.password}")
+    String password;
+
     @Operation(summary = "Welcome message", description = "Returns a welcome message with host/pod info")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful response")
@@ -32,6 +38,7 @@ public class OCPDemoController {
     public String welcomeMessage() throws Exception {
         logger.info("Hi welcome to OCPDemoController, port: " + environment.getProperty("server.port"));
         logger.debug("Hi welcome to OCPDemoController, port: " + environment.getProperty("server.port"));
+        logger.info("Just printing the my-credentials from  application yaml file : " + userName + " | " + password);
         logger.info(printHostIpPort());
         return "Hi welcome to OCPDemoController, port: " + printHostIpPort();
     }

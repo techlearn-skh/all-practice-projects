@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+
+metadata:
+  name: ocp-swagger-demo-config
+  namespace: kamalredhat-2025-dev
+
+data:
+  SERVER_PORT: "9001"
+  SWAGGER_UI_ENABLED: "true"

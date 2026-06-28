@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: ${APP_NAME:openshift-demo}
+
+server:
+  port: ${SERVER_PORT:9001}
+
+springdoc:
+  api-docs:
+    enabled: ${SWAGGER_API_DOCS_ENABLED:true}
+
+  swagger-ui:
+    enabled: ${SWAGGER_UI_ENABLED:true}
+    path: ${SWAGGER_UI_PATH:/swagger-ui.html}
+    display-request-duration: ${SWAGGER_DISPLAY_DURATION:true}
+    try-it-out-enabled: ${SWAGGER_TRY_OUT:true}
+    operations-sorter: ${SWAGGER_OPERATION_SORTER:method}
+    tags-sorter: ${SWAGGER_TAG_SORTER:alpha}
+
+my-credentials:
+  username: ${MY_USERNAME:admin}
+  password: ${MY_PASSWORD:admin}
