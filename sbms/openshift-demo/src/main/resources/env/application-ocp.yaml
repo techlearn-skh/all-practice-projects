@@ -4,6 +4,7 @@ spring:
 
 server:
   port: ${SERVER_PORT:9001}
+  forward-headers-strategy: framework
 
 springdoc:
   api-docs:
