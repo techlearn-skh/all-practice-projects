@@ -6,9 +6,16 @@
            http://www.springframework.org/schema/beans
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="eService" class="com.skh.EmployeeService">
-        <property name="empName" value="kamal...."></property>
-        <property name="empId" value="12"></property>
+
+    <bean id="address" name="address" class="com.skh.Address" scope="singleton" >
+        <property name="state" value="Oklahoma"/>
+        <property name="country" value="US"/>
+    </bean>
+
+    <bean id="eService" name="eService" class="com.skh.EmployeeService" scope="singleton" >
+        <constructor-arg value="Azad"/>
+        <constructor-arg value="12345"/>
+        <constructor-arg ref="address"/>
     </bean>
 
 
