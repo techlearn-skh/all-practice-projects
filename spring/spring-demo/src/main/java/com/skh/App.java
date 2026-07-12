@@ -10,18 +10,9 @@ public class App {
 	// parent p = new child();
 		Object eService = context.getBean("eService");
 
-	/*	EmployeeService employeeService = (EmployeeService)eService;
-		System.out.println(employeeService);*/
-		((ClassPathXmlApplicationContext)context).registerShutdownHook();
-
-/*		Address address = new Address();
-		address.setCountry("IND");
-		address.setState("AP");
-
-		EmployeeService employeeService = new EmployeeService("azad", 12,address );
-		System.out.println(employeeService.employeeDetails());*/
-
-
+		System.out.println(employeeService.employeeDetails());
+        System.out.println("Welcome to Spring Project...!");
+        System.out.println("hii i am azad..!");
 
 	}
 }
