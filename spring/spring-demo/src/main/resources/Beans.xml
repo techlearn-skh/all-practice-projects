@@ -6,10 +6,21 @@
            http://www.springframework.org/schema/beans
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="eService" class="com.skh.EmployeeService">
-        <property name="empName" value="kamal...."></property>
-        <property name="empId" value="12"></property>
+
+    <bean id="address" name="address" class="com.skh.Address" scope="singleton" >
+        <property name="state" value="Oklahoma"/>
+        <property name="country" value="US"/>
     </bean>
+
+    <bean id="eService"
+          class="com.skh.EmployeeService"
+          init-method="customInit"
+          destroy-method="customDestroy">
+
+        <property name="employeeName" value="Ramesh"/>
+    </bean>
+
+    <bean class="com.skh.MyBeanPostProcessor"/>
 
 
 </beans>
