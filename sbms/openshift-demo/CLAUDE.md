@@ -72,7 +72,14 @@ java -jar build/libs/openshift-demo-0.0.1-SNAPSHOT.jar
 ./gradlew test --tests OpenshiftDemoApplicationTests
 
 # Docker
-docker build -t ocp-swagger-demo:latest .
+docker login                                                              # login to Docker Hub (prompts for username/password)
+docker login -u kamaltechlearn                                            # login with specific username
+docker build -t ocp-swagger-demo:latest .                                 # build image from Dockerfile in current directory
+docker build -t ocp-swagger-demo:3.0 .                                   # build with a specific version tag
+docker tag ocp-swagger-demo:latest kamaltechlearn/ocp-swagger-env-demo:latest   # tag local image for Docker Hub
+docker tag ocp-swagger-demo:3.0 kamaltechlearn/ocp-swagger-env-demo:3.0        # tag with version for Docker Hub
+docker push kamaltechlearn/ocp-swagger-env-demo:latest                   # push to Docker Hub
+docker push kamaltechlearn/ocp-swagger-env-demo:3.0                      # push specific version to Docker Hub
 docker run -p 9001:9001 ocp-swagger-demo:latest
 ```
 

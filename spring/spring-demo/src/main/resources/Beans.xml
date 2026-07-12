@@ -12,11 +12,15 @@
         <property name="country" value="US"/>
     </bean>
 
-    <bean id="eService" name="eService" class="com.skh.EmployeeService" scope="singleton" >
-        <constructor-arg value="Azad"/>
-        <constructor-arg value="12345"/>
-        <constructor-arg ref="address"/>
+    <bean id="eService"
+          class="com.skh.EmployeeService"
+          init-method="customInit"
+          destroy-method="customDestroy">
+
+        <property name="employeeName" value="Ramesh"/>
     </bean>
+
+    <bean class="com.skh.MyBeanPostProcessor"/>
 
 
 </beans>

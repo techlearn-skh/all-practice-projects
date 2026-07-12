@@ -9,9 +9,10 @@ public class App {
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 	// parent p = new child();
 		Object eService = context.getBean("eService");
-		EmployeeService employeeService = (EmployeeService)eService;
-		System.out.println(employeeService);
 
+	/*	EmployeeService employeeService = (EmployeeService)eService;
+		System.out.println(employeeService);*/
+		((ClassPathXmlApplicationContext)context).registerShutdownHook();
 
 /*		Address address = new Address();
 		address.setCountry("IND");
