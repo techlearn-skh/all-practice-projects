@@ -1,18 +1,26 @@
 package com.skh;
 
+import com.skh.annotations.SbiCreditCard;
+import com.skh.annotations.SbiCreditCardConfig;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class App {
+import java.util.Scanner;
+
+public class App{
+
+
 	public static void main(String[] args) {
 
-		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-	// parent p = new child();
-		Object eService = context.getBean("eService");
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(SbiCreditCardConfig.class);
 
-		System.out.println(employeeService.employeeDetails());
-        System.out.println("Welcome to Spring Project...!");
-        System.out.println("hii i am azad..!");
+		SbiCreditCard creditCard = ctx.getBean(SbiCreditCard.class);
+		creditCard.limit();
+
 
 	}
+
+
 }
+
