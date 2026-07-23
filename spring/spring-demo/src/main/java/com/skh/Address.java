@@ -9,6 +9,9 @@ public class Address {
     private String state;
     private String country;
 
+    public Address(){
+        System.out.println("Constructor - "+ this.getClass().getName());
+    }
     public String getState() {
         return state;
     }
@@ -31,5 +34,13 @@ public class Address {
                 "state='" + state + '\'' +
                 ", country=" + country +
                 '}';
+    }
+
+    public void init(){
+        System.out.println(this.getClass().getName()+" - "+"init()");
+    }
+
+    public void destroy(){
+        System.out.println(this.getClass().getName()+" - "+"destroy()");
     }
 }

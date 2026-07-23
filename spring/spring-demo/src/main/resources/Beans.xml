@@ -7,20 +7,31 @@
            https://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean id="address" name="address" class="com.skh.Address" scope="singleton" >
+<!--
+   <bean id="address" name="address" class="com.skh.Address" scope="singleton"  init-method="init"
+   destroy-method="destroy">
         <property name="state" value="Oklahoma"/>
         <property name="country" value="US"/>
     </bean>
+-->
 
-    <bean id="eService"
+  <!--  <bean id="eService"
           class="com.skh.EmployeeService"
-          init-method="customInit"
-          destroy-method="customDestroy">
+          init-method="init"
+          destroy-method="destroy">
 
         <property name="employeeName" value="Ramesh"/>
-    </bean>
+    </bean>-->
 
-    <bean class="com.skh.MyBeanPostProcessor"/>
+   <!-- <bean class="com.skh.MyBeanPostProcessor"/>-->
+
+
+ <!--   <bean id = "helloWorld" class = "com.skh.HelloWorld"
+          init-method = "init" destroy-method = "destroy">
+        <property name = "message" value = "Hello World!"/>
+    </bean>-->
+
+    <!--<bean class = "com.skh.InitHelloWorld" />-->
 
 
 </beans>
