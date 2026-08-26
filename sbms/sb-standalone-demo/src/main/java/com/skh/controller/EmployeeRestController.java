@@ -24,11 +24,18 @@ public class EmployeeRestController {
 
     @GetMapping("/entityDummy")
     public EmployeeEntity entityDummy(){
-        return  new EmployeeEntity();
+        EmployeeEntity employeeEntity = new EmployeeEntity();
+        employeeEntity.setEmpId(1);
+        employeeEntity.setEmpName("SKH");
+        employeeEntity.setEmpSalary(232323d);
+        employeeEntity.setEmpDOJ(new Date());
+        employeeEntity.setEmpAddress("BVG");
+        return  employeeEntity;
     }
 
     @PostMapping("/storeEmployee")
-    public String storeEmployee(@RequestBody EmployeeVO employeeObj){
+    public String storeEmployee(@RequestBody EmployeeEntity employeeObj){
+        employeeObj.setEmpDOJ(new Date());
          return employeeService.storeEmployee(employeeObj);
     }
 

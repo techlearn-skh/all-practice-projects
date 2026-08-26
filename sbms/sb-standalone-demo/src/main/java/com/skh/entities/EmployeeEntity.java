@@ -22,22 +22,23 @@ public class EmployeeEntity {
 
     @Column(name = "EMP_DOJ")
     @SuppressWarnings("deprecation")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date empDOJ;
 
     @Column(name = "EMP_SALARY")
     private Double empSalary;
 
     @Column(name = "IS_PERM_EMP")
+    @Convert(converter = YesNoConverter.class)
     private Boolean isPermenentEmp;
 
 
-    public Double getEmpSalary() {
-        return empSalary;
+    public String getEmpAddress() {
+        return empAddress;
     }
 
-    public void setEmpSalary(Double empSalary) {
-        this.empSalary = empSalary;
+    public void setEmpAddress(String empAddress) {
+        this.empAddress = empAddress;
     }
 
     public Integer getEmpId() {
@@ -56,20 +57,20 @@ public class EmployeeEntity {
         this.empName = empName;
     }
 
-    public String getEmpAddress() {
-        return empAddress;
-    }
-
-    public void setEmpAddress(String empAddress) {
-        this.empAddress = empAddress;
-    }
-
     public Date getEmpDOJ() {
         return empDOJ;
     }
 
     public void setEmpDOJ(Date empDOJ) {
         this.empDOJ = empDOJ;
+    }
+
+    public Double getEmpSalary() {
+        return empSalary;
+    }
+
+    public void setEmpSalary(Double empSalary) {
+        this.empSalary = empSalary;
     }
 
     public Boolean getPermenentEmp() {
