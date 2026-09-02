@@ -7,9 +7,7 @@ import com.skh.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class EmployeeService {
@@ -26,8 +24,12 @@ public class EmployeeService {
         return "Employee Stored successfully with the name: "+ employeeObj.getEmpName();
     }
 
-    public Set<EmployeeVO> fetchAllEmployees(){
-        return  null;
+    public List<EmployeeEntity> fetchAllEmployees(){
+        return  employeeRepository.findAll();
+    }
+
+    public Optional<EmployeeEntity> fetchEmployeesById(Integer eId){
+        return  employeeRepository.findById(eId);
     }
 
 
