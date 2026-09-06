@@ -28,7 +28,8 @@ public class EmployeeRestController {
     }
 
     @GetMapping("/entityDummy")
-    public EmployeeEntity entityDummy(){
+    public EmployeeEntity entityDummy(@RequestParam String test){
+        System.out.println(test);
         EmployeeEntity employeeEntity = new EmployeeEntity();
         employeeEntity.setEmpId(1);
         employeeEntity.setEmpName("SKH");
