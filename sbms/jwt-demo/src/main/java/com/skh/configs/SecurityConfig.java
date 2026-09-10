@@ -27,6 +27,7 @@ public class SecurityConfig {
                         .pathMatchers("/user/dummyUser").permitAll()
                         .pathMatchers("/user/register").permitAll()
                         .pathMatchers("/user/authenticateUser").permitAll()
+                        .pathMatchers("/user/authenticateUserAndGenerateJWTToken").permitAll()
                         .pathMatchers(
                                 "/swagger-ui.html",
                                 "/swagger-ui/**",
@@ -37,12 +38,15 @@ public class SecurityConfig {
                 .build();
     }
 
+    /**
+     * When we start the server that time itself, below objject created and stored in spring IOC container context.
+     * @param userDetailsService
+     * @param passwordEncoder
+     * @return
+     */
     @Bean
-    public ReactiveAuthenticationManager reactiveAuthenticationManager(ReactiveUserDetailsService userDetailsService,
-            PasswordEncoder passwordEncoder) {
-
-        UserDetailsRepositoryReactiveAuthenticationManager manager =
-                new UserDetailsRepositoryReactiveAuthenticationManager(userDetailsService);
+    public ReactiveAuthenticationManager reactiveAuthenticationManager(ReactiveUserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
+        UserDetailsRepositoryReactiveAuthenticationManager manager = new UserDetailsRepositoryReactiveAuthenticationManager(userDetailsService);
         manager.setPasswordEncoder(passwordEncoder);
         return manager;
     }
