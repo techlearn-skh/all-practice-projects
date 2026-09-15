@@ -29,7 +29,26 @@ public class EmployeeService {
     }
 
     public Optional<EmployeeEntity> fetchEmployeesById(Integer eId){
-        return  employeeRepository.findById(eId);
+
+        if(employeeExists(eId)){
+            return  employeeRepository.findById(eId);
+        }else {
+            return Optional.empty();
+        }
+    }
+
+    public String deleteEmployeeById(Integer employeeId){
+
+        if(employeeExists(employeeId)){
+            employeeRepository.deleteById(employeeId);
+            return "Employee deleted successfully, employeeID: "+ employeeId;
+        }else {
+            return "Employee not found, employeeID: "+ employeeId;
+        }
+    }
+
+    public Boolean employeeExists(Integer employeeId){
+        return employeeRepository.existsById(employeeId);
     }
 
 

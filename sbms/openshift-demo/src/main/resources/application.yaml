@@ -24,3 +24,21 @@ springdoc:
 my-credentials:
   username: ${MY_USERNAME:admin}
   password: ${MY_PASSWORD:admin}
+
+
+#  http://localhost:9001/actuator/health
+#  http://localhost:9001/actuator/health/liveness
+#  http://localhost:9001/actuator/health/readiness
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+
+
