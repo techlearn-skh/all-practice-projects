@@ -9,9 +9,9 @@ import java.util.Objects;
 @Table(name = "EMPLOYEES_ET")
 public class EmployeeEntity {
 
-    @Id
-    @Column(name = "EMP_ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // Primary key representation.
+    @Column(name = "EMP_ID") // java field and table column mapping.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // PK Generation Algorithm.
     private Integer empId;
 
     @Column(name = "EMP_NAME")
@@ -30,7 +30,7 @@ public class EmployeeEntity {
 
     @Column(name = "IS_PERM_EMP")
     @Convert(converter = YesNoConverter.class)
-    private Boolean isPermenentEmp;
+    private Boolean isPermenentEmp;// 0, 1 ==> converter --> no, yes
 
 
     public String getEmpAddress() {

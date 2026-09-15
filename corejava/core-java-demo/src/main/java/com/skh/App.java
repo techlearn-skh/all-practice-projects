@@ -3,6 +3,7 @@ package com.skh;
 
 import com.skh.interfaces.AnimalInterface;
 
+import javax.swing.plaf.TableHeaderUI;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.HashMap;
@@ -21,6 +22,10 @@ public class App {
 
         InetAddress localhost = InetAddress.getLocalHost();
         System.out.println("localhost : "+localhost);
+
+
+        System.out.println(Thread.currentThread().getStackTrace()[1].getMethodName());
+
 
 
     }

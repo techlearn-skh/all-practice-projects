@@ -45,6 +45,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	testImplementation 'org.springframework.boot:spring-boot-starter-validation-test'
 
+	//	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.2' --> this is for spring web mvc, but we are using spring webflux, so we need to use the following dependency instead
+	implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:3.0.2' // this is for spring webflux
+
 
 }
 
