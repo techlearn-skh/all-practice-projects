@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: war-tomcat-demo
+server:
+  port: 9009
