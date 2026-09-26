@@ -30,7 +30,7 @@ server:
      key-alias: myapp
 
 
-debug: true
+#debug: true
 
 logging:
   pattern:
