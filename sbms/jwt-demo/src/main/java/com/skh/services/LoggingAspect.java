@@ -19,7 +19,7 @@ public class LoggingAspect {
      */
     @Pointcut(
             "within(com.skh.services..*) || " +
-                    "within(com.skh.controllers..*)" +
+                    "within(com.skh.configs..*)" +
                     "within(   org.springframework.security.authentication..*)"
     )
     public void springBeanPointcut() {}
