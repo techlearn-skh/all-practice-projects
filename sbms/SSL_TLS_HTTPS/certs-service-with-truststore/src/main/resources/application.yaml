@@ -1,0 +1,14 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: certs-service-with-truststore
+  ssl:
+    bundle:
+      jks:
+        my-downstream-client:
+          truststore:
+            location: classpath:mytruststore.p12
+            password: ${KEYSTORE_PASSWORD:changeit}
+            type: PKCS12

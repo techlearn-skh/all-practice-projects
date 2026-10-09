@@ -1,0 +1,75 @@
+--------------------------------------------------------------------------
+keytool -genkeypair \
+  -alias myapp \
+  -keyalg RSA \
+  -keysize 2048 \
+  -storetype PKCS12 \
+  -keystore mykeystore.p12 \
+  -validity 365 \
+  -storepass changeit \
+  -keypass changeit \
+  -dname "CN=localhost" \
+  -ext SAN=dns:localhost,ip:127.0.0.1
+--------------------------------------------------------------------------  
+Explanation of each option
+Option	Meaning
+keytool		--> Java's command-line utility for managing keys and certificates.
+-genkeypair	--> Generates a public/private key pair and a certificate.
+-alias myapp		--> Gives the key entry the name myapp inside the keystore.
+-keyalg RSA	--> 	Uses the RSA cryptographic algorithm.
+-keysize 2048		--> Creates a 2048-bit RSA key.
+-storetype PKCS12	--> 	Uses the standard PKCS#12 container format.
+-keystore mykeystore.p12	--> 	Creates or writes to this keystore file.
+-validity 365		--> Sets the certificate validity to 365 days.
+-storepass changeit		--> Sets the keystore password.
+-keypass changeit		--> Specifies the key-entry password.
+-dname "CN=localhost"	--> 	Sets the certificate's distinguished name, with localhost as the common name.
+-ext SAN=...	Adds Subject Alternative Names to identify the hosts/IP addresses covered by the certificate.
+-------------------------------------------------------------------------
+keytool -exportcert \
+  -alias myapp \
+  -storetype PKCS12 \
+  -keystore mykeystore.p12 \
+  -rfc \
+  -file myapp-public.crt \
+  -storepass changeit
+-------------------------------------------------------------------------
+Explanation of each option
+Option	Meaning
+-exportcert	--> Exports a certificate from a keystore.
+-alias myapp		--> Selects the certificate associated with the myapp entry.
+-storetype PKCS12	--> 	Identifies the keystore format.
+-keystore mykeystore.p12	--> 	Specifies the source keystore.
+-rfc		--> Exports the certificate in PEM format, using Base64 text with certificate delimiters.
+-file myapp-public.crt	--> 	Specifies the output certificate filename.
+-storepass changeit		--> Supplies the keystore password.
+--------------------------------------------------------------------------
+keytool -importcert \
+  -alias myapp \
+  -file myapp-public.crt \
+  -storetype PKCS12 \
+  -keystore mytruststore.p12 \
+  -storepass changeit \
+  -trustcacerts
+--------------------------------------------------------------------------
+Explanation of each option
+Option	Meaning
+-importcert --> 	Imports a certificate into a keystore or truststore.
+-alias myapp --> 	Names the imported certificate entry myapp.
+-file myapp-public.crt	 --> Specifies the certificate to import.
+-storetype PKCS12	 --> Uses the PKCS#12 format.
+-keystore mytruststore.p12	 --> Specifies the destination truststore file.
+-storepass changeit	 --> Sets or supplies the destination store password.
+-trustcacerts	 --> Tells keytool to consider the keystore's trusted CA certificates when checking trust; it does not turn a self-signed certificate into a CA-signed certificate.
+
+--------------------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------------
+
+
+
+
+--------------------------------------------------------------------------
