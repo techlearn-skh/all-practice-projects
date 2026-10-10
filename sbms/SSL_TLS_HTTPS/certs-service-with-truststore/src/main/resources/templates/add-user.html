@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add User</title>
+</head>
+<body>
+<form action="#" th:action="@{/adduser}" th:object="${userVO}" method="post">
+    <label for="userName">Name</label>
+    <input type="text" th:field="*{userName}" id="userName" placeholder="userName">
+    <label for="email">Email</label>
+    <input type="text" th:field="*{email}" id="email" placeholder="Email">
+    <input type="submit" value="Add User">
+</form>
+
+<!-- Alert script -->
+<script th:if="${success}">
+    alert("User added successfully!");
+</script>
+
+</body>
+</html>`
