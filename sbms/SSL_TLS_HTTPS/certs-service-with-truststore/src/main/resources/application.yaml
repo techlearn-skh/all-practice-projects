@@ -12,3 +12,18 @@ spring:
             location: classpath:mytruststore.p12
             password: ${KEYSTORE_PASSWORD:changeit}
             type: PKCS12
+
+
+springdoc:
+  api-docs:
+    enabled: true
+
+  swagger-ui:
+    enabled: ${SWAGGER_UI_ENABLED:true}
+    path: /swagger-ui.html
+    display-request-duration: true
+    try-it-out-enabled: true
+    operations-sorter: method
+    tags-sorter: alpha
+
+

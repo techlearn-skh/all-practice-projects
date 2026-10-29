@@ -25,6 +25,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-webclient'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	testImplementation 'org.springframework.boot:spring-boot-starter-thymeleaf-test'
+
+
+	implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:3.1.0'
+
+
+
+
 }
 
 tasks.named('test') {
