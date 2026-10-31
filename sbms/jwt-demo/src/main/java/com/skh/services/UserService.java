@@ -15,11 +15,14 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public UserEntity registerUser(String username, String password) {
+    public UserEntity registerUser(String username, String password, String role) {
         UserEntity user = new UserEntity();
         user.setUsername(username);
         user.setPassword(passwordEncoder.encode(password));
-        user.setRole("USER");
+        user.setRole(role);
+        // SUPER_ADMIN / MANAGER / SUPERVISOR / EXECUTIVE / VIEWER / CREATOR / AUTHOR / EDITOR / MODERATOR /
+        // SUPPORT / HELPDESK / BUYER / CUSTOMER /
+        // INSTRUCTOR / TEACHER / STUDENT
         return userRepository.save(user);
     }
 }

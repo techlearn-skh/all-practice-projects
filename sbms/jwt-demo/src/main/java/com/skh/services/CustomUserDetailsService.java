@@ -29,7 +29,7 @@ public class CustomUserDetailsService implements ReactiveUserDetailsService {
                 .map(user -> User
                         .withUsername(user.getUsername())
                         .password(user.getPassword())
-                        .authorities("ROLE_USER")
+                        .authorities(user.getRole())
                         .build());
     }
 }
