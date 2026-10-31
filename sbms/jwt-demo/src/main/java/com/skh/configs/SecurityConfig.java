@@ -31,7 +31,8 @@ public class SecurityConfig {
                 .authorizeExchange(exchange -> exchange
                                 .pathMatchers("/user/dummyUser").permitAll()
                                 .pathMatchers("/user/register").permitAll()
-                                .pathMatchers("/user/login").permitAll()
+                                .pathMatchers("/user/generateTokenByUserNameAndPassword").permitAll()
+                                .pathMatchers("/user/getTokenByUNameAndPwdReturnInFilterHeader").permitAll()
                                 .pathMatchers("/user/test").permitAll()
                                 .pathMatchers("/user/authenticateUser").permitAll()
                                 .pathMatchers("/user/authenticateUserAndGenerateJWTToken").permitAll()
