@@ -42,8 +42,12 @@ logging:
 
 # JWT Configuration
 jwt:
-  secret: "sbstandalonedemo"
   expiration: 3600000  # 1 hour in milliseconds
+  secret: ${JWT_SECRET:change-me-in-prod-this-must-be-32-chars-min}
+  issuer: skh-services
+  access-token-expiration-ms: 900000      # 15 min
+  refresh-token-expiration-ms: 604800000  # 7 days
+  clock-skew-seconds: 30
 
 
 springdoc:
