@@ -7,8 +7,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class KafkaConsumerService {
-    private static final Logger log =
-            LoggerFactory.getLogger(KafkaConsumerService.class);
+    private static final Logger log = LoggerFactory.getLogger(KafkaConsumerService.class);
     @KafkaListener(topics = "${topicName}")
     public void consumeMessage(String message) {
         log.info("Received message from Kafka: {}", message);

@@ -14,12 +14,11 @@ public class SimpleConsumer {
 
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
+        props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+
         props.put("group.id", "test-group");
-        props.put("key.deserializer",
-                "org.apache.kafka.common.serialization.StringDeserializer");
-        props.put("value.deserializer",
-                "org.apache.kafka.common.serialization.StringDeserializer");
-        props.put("auto.offset.reset", "earliest");
+        props.put("auto.offset.reset", "earliest"); // latest
 
         Consumer<String, String> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Collections.singletonList("emp-name-topic"));
@@ -29,9 +28,7 @@ public class SimpleConsumer {
                     consumer.poll(Duration.ofMillis(100));
 
             for (ConsumerRecord<String, String> record : records) {
-                System.out.println("Received: "
-                        + record.value() + " from partition "
-                        + record.partition());
+                System.out.println("Received: " + record.value() + " from partition " + record.partition());
             }
         }
     }

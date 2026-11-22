@@ -12,9 +12,10 @@ import java.util.concurrent.CompletableFuture;
 
 @Service
 public class KafkaProducerService {
-    private static final Logger log =
-            LoggerFactory.getLogger(KafkaProducerService.class);
+    private static final Logger log = LoggerFactory.getLogger(KafkaProducerService.class);
+
     private final KafkaTemplate<String, String> kafkaTemplate;
+
     @Value("${topicName}")
     private String topicName;
 
@@ -22,8 +23,7 @@ public class KafkaProducerService {
         this.kafkaTemplate = kafkaTemplate;
     }
 
-    public CompletableFuture<SendResult<String, String>> sendMessageSimple(
-            String message) {
+    public CompletableFuture<SendResult<String, String>> sendMessage_NEW(String message) {
         String key = UUID.randomUUID().toString();
         return kafkaTemplate.send(topicName, key, message);
     }

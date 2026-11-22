@@ -20,7 +20,10 @@ public class SimpleProducer {
         Producer<String, String> producer = new KafkaProducer<>(props);
 
             ProducerRecord<String, String> record =
-                    new ProducerRecord<>("emp-name-topic",  LocalDateTime.now().getMinute()+"", LocalDateTime.now().toString());
+//                    new ProducerRecord<>("emp-name-topic",  LocalDateTime.now().getMinute()+"", LocalDateTime.now().toString());
+                    new ProducerRecord<>("emp-name-topic",  "companyName", "HCL");
+
+
 
             producer.send(record, (metadata, exception) -> {
                 if (exception == null) {
@@ -30,8 +33,6 @@ public class SimpleProducer {
                     exception.printStackTrace();
                 }
             });
-
-
         producer.close();
     }
 }
