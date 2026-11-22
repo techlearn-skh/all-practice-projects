@@ -1,3 +1,45 @@
 spring:
   application:
     name: confluent-kakfka-sb-demo
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      batch-size: 1000000
+      linger: 100s
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: group_id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      properties:
+        "[spring.json.trusted.packages]": "*"
+
+server:
+  port: 9000
+
+#logging:
+#  level:
+#    root: DEBUG
+#  file:
+#    name: ./logs/application-debug.log
+#  pattern:
+#    file: "%d %-5level [%thread] %logger : %msg%n"
+
+logging:
+  level:
+    root: WARN
+    com.skh.services.KafkaConsumerService: INFO
+    com.skh.services.KafkaProducerService: INFO
+    org.springframework.kafka: WARN
+    org.apache.kafka: WARN
+  file:
+    name: ./logs/application-debug.log
+
+
+
+topicName: emp-name-topic

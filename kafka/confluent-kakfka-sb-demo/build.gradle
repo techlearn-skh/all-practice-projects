@@ -2,6 +2,9 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '4.0.6'
 	id 'io.spring.dependency-management' version '1.1.7'
+
+	// Required for the avro {} source set configuration
+	id 'com.github.davidmc24.gradle.plugin.avro' version '1.9.1'
 }
 
 group = 'com.skh'
@@ -15,6 +18,11 @@ java {
 
 repositories {
 	mavenCentral()
+
+	// Confluent Maven repository
+	maven {
+		url = uri('https://packages.confluent.io/maven/')
+	}
 }
 
 dependencies {
@@ -26,8 +34,19 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-kafka-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webflux-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+	// Apache Avro runtime
+	implementation 'org.apache.avro:avro:1.12.0'
+
+	// Confluent Avro serializer and Schema Registry client
+	implementation 'io.confluent:kafka-avro-serializer:8.4.1'
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+// Avro schema generation
+tasks.named('generateAvroJava') {
+	source(file('src/main/resources/avro'))
 }

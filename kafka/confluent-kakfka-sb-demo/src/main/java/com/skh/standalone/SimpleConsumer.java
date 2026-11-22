@@ -22,7 +22,7 @@ public class SimpleConsumer {
         props.put("auto.offset.reset", "earliest");
 
         Consumer<String, String> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Collections.singletonList("test-topic"));
+        consumer.subscribe(Collections.singletonList("emp-name-topic"));
 
         while (true) {
             ConsumerRecords<String, String> records =

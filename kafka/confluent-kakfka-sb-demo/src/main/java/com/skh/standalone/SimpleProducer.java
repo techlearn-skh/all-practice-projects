@@ -14,16 +14,13 @@ public class SimpleProducer {
 
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
-        props.put("key.serializer",
-                "org.apache.kafka.common.serialization.StringSerializer");
-        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
-                "org.apache.kafka.common.serialization.StringSerializer");
+        props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+        props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, "org.apache.kafka.common.serialization.StringSerializer");
 
         Producer<String, String> producer = new KafkaProducer<>(props);
 
-
             ProducerRecord<String, String> record =
-                    new ProducerRecord<>("test-topic",  LocalDateTime.now().getMinute()+"", LocalDateTime.now().toString());
+                    new ProducerRecord<>("emp-name-topic",  LocalDateTime.now().getMinute()+"", LocalDateTime.now().toString());
 
             producer.send(record, (metadata, exception) -> {
                 if (exception == null) {

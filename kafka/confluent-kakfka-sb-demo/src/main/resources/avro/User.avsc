@@ -1,0 +1,26 @@
+
+{
+  "type": "record",
+  "namespace": "com.skh.avro",
+  "name": "User",
+  "doc": "User details for Kafka messaging",
+  "fields": [
+    {
+      "name": "id",
+      "type": "string"
+    },
+    {
+      "name": "name",
+      "type": "string"
+    },
+    {
+      "name": "email",
+      "type": ["null", "string"],
+      "default": null
+    },
+    {
+      "name": "age",
+      "type": "int"
+    }
+  ]
+}
