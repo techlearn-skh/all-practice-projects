@@ -73,10 +73,10 @@ $ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --all-group
 
 ----------------------------------------------------------------------------------
 Cleanup:
+$ docker compose down -v
 $ docker compose -f docker-compose-3-node-cluster.yml down -v  ==> delete all containers volumes etc.. DANGER for PROD.
-$ docker compose up -d
-
 $ docker compose -f <yamlFileName> up -d
+$ docker compose -f docker-compose-3-node-cluster.yml up -d
 
 ----------------------------------------------------------------------------------
 docker exec -it broker-1 kafka-topics --create --topic emp-name-topic --bootstrap-server localhost:9092 --partitions 3 --replication-factor 3
