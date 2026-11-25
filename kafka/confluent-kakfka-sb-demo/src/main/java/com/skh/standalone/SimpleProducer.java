@@ -21,7 +21,7 @@ public class SimpleProducer {
 
             ProducerRecord<String, String> record =
 //                    new ProducerRecord<>("emp-name-topic",  LocalDateTime.now().getMinute()+"", LocalDateTime.now().toString());
-                    new ProducerRecord<>("emp-name-topic",  "companyName", "HCL");
+                    new ProducerRecord<>("emp-name-topic",  "companyName2", "HCL");
 
 
 

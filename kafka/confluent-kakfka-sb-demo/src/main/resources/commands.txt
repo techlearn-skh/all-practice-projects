@@ -1,0 +1,95 @@
+1. apache kafka. --> used for small scale applications. --> less support.
+2. confluent kafka. --> enterprice applications. --> there is support from fourums.
+
+
+
+$ docker compose up -d  ==> it always looks for "docker-compose.yaml" file.
+	i will download all the docker images which we configured in .docker-compose.yaml file and run as docker containers.
+	
+	we need only : 
+		broker service
+		control-center service
+		schema-registry service
+
+kafka broker == kafka node = kafka server = kafks system = one laptop.
+
+combination of multiple brokers  =  cluster.
+
+$ docker compose up -d
+$ docker ps
+$ docker stop $(docker ps -aq) && docker rm $(docker ps -aq)  ==> to stop and remove all running docker containers.
+$ docker ps ==> to view all running containers.
+----------------------------------------------------------------------------------
+Manual process of creating topic, producing and consuming the messages: 
+Creating topic: 
+$ docker exec -it <brokerName> kafka-topics --create --topic <topicName> --bootstrap-server localhost:9092 --partitions <number> --replication-factor <replicaCountNumber>
+
+$ docker exec -it broker kafka-topics --create --topic emp-name-topic --bootstrap-server localhost:9092 --partitions 3 --replication-factor 3
+
+
+🔹 List topics
+$ docker exec -it broker kafka-topics --bootstrap-server localhost:9092 --list
+ 
+🔹 Describe a topic, means give detailed innformation about your topic.
+$ docker exec -it broker kafka-topics --bootstrap-server localhost:9092 --describe --topic emp-name-topic
+
+----------------------------------------------------------------------------------
+Producer:
+$ docker exec -it broker kafka-console-producer  --topic emp-name-topic --bootstrap-server localhost:9092
+
+For below command we can send values in "key:value" format:
+$ docker exec -it broker kafka-console-producer  --topic emp-name-topic --bootstrap-server localhost:9092 --property  "parse.key=true" --property "key.separator=:"
+
+
+----------------------------------------------------------------------------------
+Consumer:
+$ docker exec -it broker kafka-console-consumer --topic emp-name-topic --from-beginning --bootstrap-server localhost:9092
+ 
+
+$ docker exec -it broker kafka-console-consumer --topic emp-name-topic --bootstrap-server localhost:9092 --from-beginning --formatter-property  print.offset=true --formatter-property  print.partition=true
+	From above command we can see what is the message and in which offset message is stored.
+----------------------------------------------------------------------------------
+If you want to go inside to docker container use below command:
+$ docker exec -it <containerName> bash
+$ docker exec -it broker bash
+
+If we are inside docker container use below command.
+$ docker exec -it broker bash
+Then we can directly run Kafka commands like locally executing commands. We no need to add “docker exec -it broker” for each and every command. Here broker is container name we ca get using $ docker ps.
+
+$ docker exec -it broker bash
+Eg: #kafka-console-consumer --topic emp-name-topic --from-beginning --bootstrap-server localhost:9092
+Eg: #kafka-console-producer  --topic emp-name-topic --bootstrap-server localhost:9092
+Eg: #kafka-topics --bootstrap-server localhost:9092 --describe --topic emp-name-topic
+
+If you see above we did not added “docker exec -it broker” why because we are already inside the container.
+----------------------------------------------------------------------------------
+For checking cosumer groups:
+$ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --all-groups
+$ kafka-consumer-groups --bootstrap-server localhost:9092 --describe --all-groups | grep -E "^GROUP|emp-name-topic"
+
+
+
+
+----------------------------------------------------------------------------------
+Cleanup:
+$ docker compose -f docker-compose-3-node-cluster.yml down -v  ==> delete all containers volumes etc.. DANGER for PROD.
+$ docker compose up -d
+
+$ docker compose -f <yamlFileName> up -d
+
+----------------------------------------------------------------------------------
+docker exec -it broker-1 kafka-topics --create --topic emp-name-topic --bootstrap-server localhost:9092 --partitions 3 --replication-factor 3
+docker exec -it broker-1 kafka-console-producer  --topic emp-name-topic --bootstrap-server localhost:9092
+----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
